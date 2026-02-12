@@ -6,7 +6,7 @@ editor: visual
 
 # **GOV 51: PSET 01**
 
-## **Daniel Cabrera**
+## **Daniel Esteban Cabrera**
 
 GitHub Repository URL: <https://github.com/daniel-e-cabrera/gov51-ps1.git>
 

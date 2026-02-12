@@ -1,0 +1,6 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+# Large data files - keep locally, don’t push to GitHub
+data/raw/acs2024.csv
