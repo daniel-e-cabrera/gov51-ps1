@@ -291,7 +291,23 @@ knitr::kable(stats, digits = 1,
 
 ### **Question 4.1**
 
-```{}
+```{r}
+library(ggplot2)
+library(scales)
+ 
+actual_commuters_subset_histogram <- ggplot(data = actual_commuters_subset,
+                                            mapping = aes(x = TRANTIME)) +
+  geom_histogram(bins = 40, 
+                 boundary = 0, 
+                 fill = "dodgerblue", 
+                 color = "white") + 
+  labs(x = "Commute Time in Minutes", 
+       y = "Individual Commuters", 
+       title = "Commute Time Distribution in 2024 ACS Sample", 
+       caption = "Subset Sample Only Included Actual Commuters") + 
+  scale_x_continuous(breaks = seq(0, 200, by = 10)) + 
+  scale_y_continuous(labels = comma)
+print(actual_commuters_subset_histogram)
 ```
 
 In my histogram, we can see that that it is very much right skewed, or more specifically, that the majority of actual commuters have a commute time of around 5 minutes to 35 minutes. Notably, there is a dramatic decline in the number of respondents after 35 minutes, and then another large decline after about 65 minutes. Lastly, there are a few outliers visible on the graph around 135 minutes to 160 minutes.
