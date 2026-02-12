@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ps1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="ps1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ps1_files/libs/quarto-html/quarto.js"></script>
+<script src="ps1_files/libs/quarto-html/popper.min.js"></script>
+<script src="ps1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="ps1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="ps1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ps1_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="ps1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="ps1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="ps1_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ps1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="gov-51-pset-01" class="level1">
+<h1><strong>GOV 51: PSET 01</strong></h1>
+<section id="daniel-esteban-cabrera" class="level2">
+<h2 class="anchored" data-anchor-id="daniel-esteban-cabrera"><strong>Daniel Esteban Cabrera</strong></h2>
+<p>GitHub Repository URL: <a href="https://github.com/daniel-e-cabrera/gov51-ps1.git" class="uri">https://github.com/daniel-e-cabrera/gov51-ps1.git</a></p>
+<section id="question-2.1" class="level3">
+<h3 class="anchored" data-anchor-id="question-2.1"><strong>Question 2.1</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Loading in needed libraries and dataset</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>acs2024 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/acs2024.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Viewing the data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(acs2024)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  YEAR SAMPLE SERIAL    CBSERIAL HHWT   CLUSTER STATEFIP GQ PERNUM PERWT SEX
+1 2024 202401      1 2.02401e+12   41 2.024e+12        1  3      1    41   1
+2 2024 202401      2 2.02401e+12   52 2.024e+12        1  3      1    52   1
+3 2024 202401      3 2.02401e+12   31 2.024e+12        1  3      1    31   2
+4 2024 202401      4 2.02401e+12    4 2.024e+12        1  4      1     4   2
+5 2024 202401      5 2.02401e+12   19 2.024e+12        1  3      1    19   1
+6 2024 202401      6 2.02401e+12   64 2.024e+12        1  4      1    64   1
+  AGE EDUC EDUCD EMPSTAT EMPSTATD INCTOT TRANTIME
+1  59    2    25       3       30  18500        0
+2  43    6    64       3       30      0        0
+3  75    6    63       3       30  27100        0
+4  22    7    71       3       30   1000        0
+5  51    6    63       3       30      0        0
+6  20    7    71       3       30      0        0</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2.2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2.2"><strong>Question 2.2</strong></h3>
+<p>TRANTIME is a 3-digit numeric variable reporting the total amount of time, in minutes, that it usually took the respondent to get from home to work last week. Therefore, a value of 0 in TRANTIME means “N/A”. Or, in other words, that the individual works from home, does not work, or for any other reason does not commute to work.</p>
+<p>Additionally, PERWT is a 6-digit numeric variable indicating how many people in the U.S. population are represented by a given person in an IPUMS sample. More specifically, PERWT tells us how much each person weighs in the data. As mentioned in lecture, sometimes we weigh some individuals (such as minorities) more heavily than others because we lack more of them needed to be representative of our population. For example, if we lack Hispanics in our sample, and needed more to be representative of the U.S. population, then we weigh the Hispanics in the sample more heavily. Additionally, it should be noted that PERWT has two implied decimals. For example, a PERWT value of 010461 should be interpreted as 104.61.</p>
+</section>
+<section id="question-2.3" class="level3">
+<h3 class="anchored" data-anchor-id="question-2.3"><strong>Question 2.3</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating New Variables</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>acs2024 <span class="ot">&lt;-</span> acs2024 <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">female =</span> <span class="fu">case_when</span>(SEX <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                            SEX <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>acs2024 <span class="ot">&lt;-</span> acs2024 <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">less_hs =</span> <span class="fu">case_when</span>(EDUC <span class="sc">%in%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">hs_only =</span> <span class="fu">case_when</span>(EDUC <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">some_college =</span> <span class="fu">case_when</span>(EDUC <span class="sc">%in%</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span> <span class="sc">~</span> <span class="dv">1</span>,  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">college_only =</span> <span class="fu">case_when</span>(EDUC <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">advanced_degree =</span> <span class="fu">case_when</span>(EDUC <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>acs2024 <span class="ot">&lt;-</span> acs2024 <span class="sc">|&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">employed =</span> <span class="fu">case_when</span>(EMPSTAT <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>, EMPSTAT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>) <span class="sc">~</span> <span class="cn">NA_integer_</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">unemployed =</span> <span class="fu">case_when</span>(EMPSTAT <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">1</span>, EMPSTAT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>) <span class="sc">~</span> <span class="cn">NA_integer_</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">not_in_labor_force =</span> <span class="fu">case_when</span>(EMPSTAT <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">1</span>, EMPSTAT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>) <span class="sc">~</span> <span class="cn">NA_integer_</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>acs2024 <span class="ot">&lt;-</span> acs2024 <span class="sc">|&gt;</span> <span class="fu">mutate</span> (<span class="at">INCTOT_clean =</span> <span class="fu">case_when</span>(INCTOT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9999998</span>, <span class="dv">9999999</span>) <span class="sc">~</span> <span class="cn">NA_integer_</span>, <span class="cn">TRUE</span> <span class="sc">~</span> (INCTOT)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Viewing the data with new variables</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(acs2024)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  YEAR SAMPLE SERIAL    CBSERIAL HHWT   CLUSTER STATEFIP GQ PERNUM PERWT SEX
+1 2024 202401      1 2.02401e+12   41 2.024e+12        1  3      1    41   1
+2 2024 202401      2 2.02401e+12   52 2.024e+12        1  3      1    52   1
+3 2024 202401      3 2.02401e+12   31 2.024e+12        1  3      1    31   2
+4 2024 202401      4 2.02401e+12    4 2.024e+12        1  4      1     4   2
+5 2024 202401      5 2.02401e+12   19 2.024e+12        1  3      1    19   1
+6 2024 202401      6 2.02401e+12   64 2.024e+12        1  4      1    64   1
+  AGE EDUC EDUCD EMPSTAT EMPSTATD INCTOT TRANTIME female less_hs hs_only
+1  59    2    25       3       30  18500        0      0       1       0
+2  43    6    64       3       30      0        0      0       0       1
+3  75    6    63       3       30  27100        0      1       0       1
+4  22    7    71       3       30   1000        0      1       0       0
+5  51    6    63       3       30      0        0      0       0       1
+6  20    7    71       3       30      0        0      0       0       0
+  some_college college_only advanced_degree employed unemployed
+1            0            0               0        0          0
+2            0            0               0        0          0
+3            0            0               0        0          0
+4            1            0               0        0          0
+5            0            0               0        0          0
+6            1            0               0        0          0
+  not_in_labor_force INCTOT_clean
+1                  1        18500
+2                  1            0
+3                  1        27100
+4                  1         1000
+5                  1            0
+6                  1            0</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2.4" class="level3">
+<h3 class="anchored" data-anchor-id="question-2.4"><strong>Question 2.4</strong></h3>
+<p>If we treated 0 or 99 which in this data set, represents “N/A” rather than a true value, then any manipulation of the data is going to be incorrect. More specifically, a very low value of 0 or a high value of 99 will impact our summary statistics such as our averages, ranges, medians, etc. However, we don’t want them to since they do not represent a true value.</p>
+<p>For example, with our SEX variable, we have the numeric values of either 1 for male, 2 for female, or 9 for N/A. Therefore, we have to remove the variable 9 because it does not represent a true value. If we keep it in our data set, our summary statistics will be incorrectly skewed up. In other words, all of our values will be incorrectly higher than they should be.</p>
+</section>
+<section id="question-2.5" class="level3">
+<h3 class="anchored" data-anchor-id="question-2.5"><strong>Question 2.5</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating summary statistics table </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">c</span>(<span class="st">"Age"</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Female"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Less Than Highschool"</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>               <span class="st">"High School Only"</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Some College"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">"College Only"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Advanced Degree"</span>, </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Employed"</span>, </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Unemployed"</span>, </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Not in Labor Force"</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Commute Time (mins)"</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Total Income ($)"</span>),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">c</span>(<span class="fu">length</span>(acs2024<span class="sc">$</span>AGE),</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>female),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>less_hs),</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>hs_only),</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>some_college),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>college_only),</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>advanced_degree),</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>employed),</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>unemployed),</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>not_in_labor_force),</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>TRANTIME),</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(acs2024<span class="sc">$</span>INCTOT_clean)),</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">c</span>(<span class="fu">mean</span>(acs2024<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(acs2024<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">c</span>(<span class="fu">sd</span>(acs2024<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(acs2024<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">Min =</span> <span class="fu">c</span>(<span class="fu">min</span>(acs2024<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(acs2024<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>  <span class="at">Max =</span> <span class="fu">c</span>(<span class="fu">max</span>(acs2024<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(acs2024<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(stats, <span class="at">digits =</span> <span class="dv">1</span>,</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">"Table 1: Summary Statistics for 2024 ACS Sample"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 1: Summary Statistics for 2024 ACS Sample</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Min</th>
+<th style="text-align: right;">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Age</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">43.4</td>
+<td style="text-align: right;">24.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">96</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Less Than Highschool</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">High School Only</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Some College</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">College Only</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Advanced Degree</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Employed</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unemployed</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Not in Labor Force</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commute Time (mins)</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">10.8</td>
+<td style="text-align: right;">19.8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total Income ($)</td>
+<td style="text-align: right;">3422888</td>
+<td style="text-align: right;">54654.7</td>
+<td style="text-align: right;">80080.4</td>
+<td style="text-align: right;">-11500</td>
+<td style="text-align: right;">1945000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="question-2.6" class="level3">
+<h3 class="anchored" data-anchor-id="question-2.6"><strong>Question 2.6</strong></h3>
+<p>The maximum commute time of 195 minutes, or an hour and 15 minutes make sense for a daily commute time. At least for me, I am from rural Oregon and in the town Bandon, Oregon where I am from, many, many people commute almost two hours to get to work everyday from neighboring towns like Port Orford and Myrtle Point. Additionally, we expect our maximum commute time to be relatively high because it is quite literally the highest commute time value we have of a very, very large sample (3422888). With this many samples, it is very likely that we are going to have at least one sample that is an extreme.</p>
+</section>
+<section id="question-3.1" class="level3">
+<h3 class="anchored" data-anchor-id="question-3.1"><strong>Question 3.1</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>zero_commute <span class="ot">=</span> <span class="fu">sum</span>(acs2024<span class="sc">$</span>TRANTIME <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(zero_commute)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2062945</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>percent_zero_commute <span class="ot">&lt;-</span> (zero_commute <span class="sc">/</span> <span class="fu">nrow</span>(acs2024)) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(percent_zero_commute)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 60.26914</code></pre>
+</div>
+</div>
+<p>These individuals (2062945 or about 60.3% of the total of respondents) with commune times of 0 are either people who work from home, individuals who do not work, their commute times are under a minute total, or are N/A.</p>
+</section>
+<section id="question-3.2" class="level3">
+<h3 class="anchored" data-anchor-id="question-3.2"><strong>Question 3.2</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>actual_commuters_subset <span class="ot">&lt;-</span> acs2024 <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(TRANTIME <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I chose to filter out all of the individuals who have a commute time that is more than 0. Simply put, if we want to study the commute time of individuals, then we need people with commute times to study. In other words, we need to only keep in our data set people who have commute times above 0 minutes. A similar way to think about this is if we wanted to study Harvard students. If we did, then we would need to filter from a data set the students who go to Harvard.</p>
+</section>
+<section id="question-3.3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3.3"><strong>Question 3.3</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>commuters_above_zero_total <span class="ot">&lt;-</span> actual_commuters_subset <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(commuters_above_zero_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1359943</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>commuters_above_zero_min <span class="ot">&lt;-</span> <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(commuters_above_zero_min)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>After we have filtered out people who have a commute time above 0, we go from 3422888 respondents to only 1359943, losing about 60.3% of of our original group. The new minimum is now a commute time of 1 minute. This makes sense because we removed all the 0s from our original data set, which means that that next lowest possible commute time someone could have is 1. And surely enough, it appears that someone does have a commute time of 1 in our new subset.</p>
+</section>
+<section id="question-3.4" class="level3">
+<h3 class="anchored" data-anchor-id="question-3.4"><strong>Question 3.4</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating summary statistics table with our new actual_commuters_subset</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">c</span>(<span class="st">"Age"</span>, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Female"</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Less Than Highschool"</span>, </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>               <span class="st">"High School Only"</span>, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Some College"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">"College Only"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Advanced Degree"</span>, </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Employed"</span>, </span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Unemployed"</span>, </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Not in Labor Force"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Commute Time (mins)"</span>,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Total Income ($)"</span>),</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">c</span>(<span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>AGE),</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>female),</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>less_hs),</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>hs_only),</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>some_college),</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>college_only),</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>advanced_degree),</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>employed),</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>unemployed),</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>not_in_labor_force),</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME),</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(actual_commuters_subset<span class="sc">$</span>INCTOT_clean)),</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">c</span>(<span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>           <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">c</span>(<span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sd</span>(actual_commuters_subset<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">Min =</span> <span class="fu">c</span>(<span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a>          <span class="fu">min</span>(actual_commuters_subset<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a>  <span class="at">Max =</span> <span class="fu">c</span>(<span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>AGE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>female, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>less_hs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>hs_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>some_college, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>college_only, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>advanced_degree, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>employed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>unemployed, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>not_in_labor_force, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a>          <span class="fu">max</span>(actual_commuters_subset<span class="sc">$</span>INCTOT_clean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(stats, <span class="at">digits =</span> <span class="dv">1</span>,</span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">"Table 2: Summary Statistics for 2024 ACS Sample (Only Keeping Actual Commuters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 2: Summary Statistics for 2024 ACS Sample (Only Keeping Actual Commuters)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Min</th>
+<th style="text-align: right;">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Age</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">43.4</td>
+<td style="text-align: right;">15.3</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">96</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Less Than Highschool</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">High School Only</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Some College</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">College Only</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Advanced Degree</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Employed</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unemployed</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Not in Labor Force</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commute Time (mins)</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">27.2</td>
+<td style="text-align: right;">23.3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total Income ($)</td>
+<td style="text-align: right;">1359943</td>
+<td style="text-align: right;">72992.7</td>
+<td style="text-align: right;">88726.0</td>
+<td style="text-align: right;">-11500</td>
+<td style="text-align: right;">1945000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="question-4.1" class="level3">
+<h3 class="anchored" data-anchor-id="question-4.1"><strong>Question 4.1</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'scales'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    discard</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:readr':
+
+    col_factor</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>actual_commuters_subset_histogram <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> actual_commuters_subset,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> TRANTIME)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">40</span>, </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="dv">0</span>, </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">"dodgerblue"</span>, </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Commute Time in Minutes"</span>, </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Individual Commuters"</span>, </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Commute Time Distribution in 2024 ACS Sample"</span>, </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Subset Sample Only Included Actual Commuters"</span>) <span class="sc">+</span> </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">200</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(actual_commuters_subset_histogram)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ps1_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4.2" class="level3">
+<h3 class="anchored" data-anchor-id="question-4.2"><strong>Question 4.2</strong></h3>
+<p>In my histogram, we can see that that it is very much right skewed, or more specifically, that the majority of actual commuters have a commute time of around 5 minutes to 35 minutes. Notably, there is a dramatic decline in the number of respondents after 35 minutes, and then another large decline after about 65 minutes. Lastly, there are a few outliers visible on the graph around 135 minutes to 160 minutes.</p>
+</section>
+<section id="question-4.3" class="level3">
+<h3 class="anchored" data-anchor-id="question-4.3"><strong>Question 4.3</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a> actual_commuters_subset_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(actual_commuters_subset_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27.21505</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a> actual_commuters_subset_median <span class="ot">&lt;-</span> <span class="fu">median</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(actual_commuters_subset_median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+</div>
+<p>From my summary statistics table, I can see that my mean is about 27.2. Additionally, I can calculate my median which is 20. Comparing these two, we an see that the average for actual commuters is higher than the median number (middle value). This is most likely because the mean is taking into account those few outliers we had around the 135-160 minute mark. This tells me that my distribution is right skewed and yes, it does match with what I see in my histogram.</p>
+</section>
+<section id="question-4.4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4.4"><strong>Question 4.4</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"/Users/danielcabrera/Desktop/gov51-ps1/data/raw/code/output/commute_histogram.png"</span>, <span class="at">plot =</span> actual_commuters_subset_histogram, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-5.1" class="level3">
+<h3 class="anchored" data-anchor-id="question-5.1"><strong>Question 5.1</strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">weighted.mean</span>(actual_commuters_subset<span class="sc">$</span>TRANTIME, actual_commuters_subset<span class="sc">$</span>PERWT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27.19112</code></pre>
+</div>
+</div>
+</section>
+<section id="question-5.2" class="level3">
+<h3 class="anchored" data-anchor-id="question-5.2"><strong>Question 5.2</strong></h3>
+<p>The weighted mean is very similar to the unweighted mean I calculated earlier. The difference is only about 0.02.</p>
+</section>
+<section id="question-5.3" class="level3">
+<h3 class="anchored" data-anchor-id="question-5.3"><strong>Question 5.3</strong></h3>
+<p>The unweighted mean of 27.215 shows us the average of our sample population which is a subset (only having actual commuters) of our original ACS 2024 sample data set. On the other hand, our weighted commute time takes into account how many people in the actual U.S. population one of our sample individuals represents. More specifically then, the weighted mean of 27.191 tells us the best estimate for the average commute time in the U.S. population (not our sample population). And it does so by using the PERWT variable.</p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
